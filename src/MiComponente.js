@@ -15,6 +15,7 @@ const MiComponente = () =>{
     };
 
     return (
+        
         <div className="mi-componente">
             <hr/>
             <p>Este es mi primer componente</p>
