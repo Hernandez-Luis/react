@@ -19,7 +19,7 @@ const MiComponente = () =>{
             <hr/>
             <p>Este es mi primer componente</p>
             <h3>Datps de l usuario:</h3>
-            <p>Prueba</p>
+            <p>Prueba 3333</p>
             <ul>
                 <li>Nombre: <strong>{usuario.nombre}</strong></li>
                 <li>Web: <strong>{usuario.web}</strong></li>
