@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import MiComponente from './MiComponente';
+import { SegundoComponente } from './SegundoComponente';
 
 function App() {
   return (
@@ -10,9 +11,13 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* Cargar mi primer componente */}
-        <MiComponente></MiComponente>
-
+        
+        <div className='componentes'>
+          {/* Cargar mi primer componente */}
+          <MiComponente></MiComponente>
+          <hr></hr>
+          <SegundoComponente></SegundoComponente>
+        </div>
       </header>
     </div>
   );
