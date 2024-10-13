@@ -1,8 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import MiComponente from './MiComponente';
+import { SegundoComponente } from './SegundoComponente';
+import { TercerComponente } from './TercerComponente';
+import { EventosComponente } from './EventosComponente';
 
 function App() {
+const ficha_medica={
+  altura:"187 cm",
+  grupo:"H+",
+  estado:"Bueno",
+  alergias:"Ninguna"
+}
+
+const numero = 9
   return (
     <div className="App">
       <header className="App-header">
@@ -10,9 +21,21 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* Cargar mi primer componente */}
-        <MiComponente></MiComponente>
-
+        
+        <div className='componentes'>
+          {/* Cargar mi primer componente */}
+          <MiComponente></MiComponente>
+          <hr></hr>
+          <SegundoComponente></SegundoComponente>
+          <hr></hr>
+          <TercerComponente 
+            nombre= "Luis"
+            apellido="Hernandez"
+            ficha = {ficha_medica}
+          ></TercerComponente>
+          <hr></hr>
+          <EventosComponente></EventosComponente>
+        </div>
       </header>
     </div>
   );
