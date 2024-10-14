@@ -36,8 +36,14 @@ const numero = 9
           <hr></hr>
           <EventosComponente></EventosComponente>
         </div>
+        <hr></hr>
+        <hr></hr>
+        <hr></hr>
+        <hr></hr>
       </header>
     </div>
+
+    
   );
 }
 
