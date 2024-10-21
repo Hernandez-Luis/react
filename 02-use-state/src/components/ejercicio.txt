@@ -1,0 +1,12 @@
+1. Crear un componente
+
+2. Recibir una prop con el a;o actual
+
+3. Ojo, usar funciones para sacar el a;o
+
+4. Usar estados y eventos para tener dos botones.
+
+5. Validar que el a;o ea un numero y que sea requerido (prop)
+
+6. Cambiar el a;o mediante un input de texto y que se cambie 
+dinamicamente.
