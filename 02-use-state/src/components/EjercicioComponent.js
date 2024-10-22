@@ -14,9 +14,13 @@ export const EjercicioComponent = ({year}) => {
     }
 
     const cambiarYear = e => {
-        let dato = e.target.value;
+        let dato = parseInt(e.target.value); 
 
-        setYearNow(dato);
+        if(Number.isInteger(dato)){
+            setYearNow(dato);    
+        } else {
+            setYearNow(year);
+        }
     }
 
   return (
