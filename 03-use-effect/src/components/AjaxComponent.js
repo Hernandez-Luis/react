@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 export const AjaxComponent = () => {
 
   const [usuarios,setUsuarios] = useState([]);
+  const [cargando,setCargando] = useState(true);
+  const [errores,setErrores] = useState("")
+
   //Generico / basico
   const getUsuariosEstaticos = () =>{
     setUsuarios([
@@ -44,13 +47,19 @@ export const AjaxComponent = () => {
     )
   }
 
-  const getUsuariosAjaxAW = async () => {
-    const peticion = await fetch("https://reqres.in/api/users?page=1")
-    const {data} = await peticion.json();
-
-    setUsuarios(data);
-
-    console.log(data)
+  const getUsuariosAjaxAW = () => {
+    setTimeout( async ()  => {
+      try{
+        const peticion = await fetch("https://reqres.in/api/users?page=1")
+        const {data} = await peticion.json();
+  
+        setUsuarios(data);
+        setCargando(false);
+      } catch(error){
+        console.log(error)
+        setErrores(error.message)
+      }
+    }, 2000);
   } 
 
   useEffect(() => {
@@ -59,17 +68,40 @@ export const AjaxComponent = () => {
     getUsuariosAjaxAW();
   },[]);
 
-  return (
-    <div>
-      <h1>Listado de usuario via Ajax</h1>  
-      <ol className='usuarios'>  
-        {
-          usuarios.map(usuario =>{
-            console.log(usuario)
-            return <li key={usuario.id}>{usuario.first_name} {usuario.last_name}</li>
-          })
-        }
-      </ol>
-    </div>
-  )
+  if(errores !== ""){
+    // Cuando pasa un error
+    return(
+      <div className='errores'>
+          {errores}
+      </div>
+    )
+  } else if(cargando == true){
+    //Cuando esta todo cargando
+    return(
+      <div className='cargando'>
+          Cargando datos...
+      </div>
+    )
+  } else if(cargando == false && errores === ""){
+ // Cuando todo ha ido bien
+    return (
+      <div>
+        <h1>Listado de usuario via Ajax</h1>  
+        <ol className='usuarios'>  
+          {
+            usuarios.map(usuario =>{
+              console.log(usuario)
+              return (<li key={usuario.id}>
+                <img src={usuario.avatar} width="30"></img>
+                &nbsp;
+                {usuario.first_name} {usuario.last_name}
+                </li>)
+            })
+          }
+        </ol>
+      </div>
+    )
+  }
 }
+
+
